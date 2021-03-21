@@ -1,0 +1,448 @@
+:root {
+    --primary-color: #fd951f;
+    --primary-color-dark: #da8524;
+    --secondary-color: #2c77da;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+
+    list-style: none;
+    text-decoration: none;
+    font-size: 1rem;
+
+}
+
+html, body {
+    min-height: 100vh;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    overflow: overlay;
+}
+
+.container {
+    width: 90vw;
+    margin: 0 auto;
+    max-width: 58.75rem;
+}
+
+.button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: .8rem 1rem;
+    display: block;
+    margin: 2rem 0;
+    border-radius: .5rem;
+    width: 100%;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color .3s;
+    /* para se alinhar no final */
+    align-self: end;
+}
+
+.button.active {
+    justify-self: left;
+    width: 80%;
+    font-size: .8rem;
+}
+
+.button:hover {
+    background-color: var(--primary-color-dark)
+}
+
+.button.edit {
+    background-color: var(--secondary-color)
+}
+
+.button.edit:hover {
+    background-color: #014caf;
+}
+
+.button.delete {
+    background-color: lightgray;
+}
+
+.button.delete:hover {
+    background-color: #bb4e4e;
+}
+
+.fields .item div span {
+    background-color: var(--primary-color);
+    margin: 1rem 1rem 1rem 0;
+    padding: .5rem 1rem;
+    display: inline-block;
+    font-weight: bold;
+    border-radius: 1rem;
+    color: white;
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+
+/* ============= HEADER & FOOTER ============= */
+
+header, footer {
+    background: black;
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding: 2rem 0
+}
+
+footer {
+    margin-top: auto;
+}
+
+header div.container {
+    display: grid;
+    grid-template-columns: 13.75rem auto 19.5rem;
+    align-items: center;
+    gap: 2rem;
+}
+
+header div.container a {
+    justify-self: start
+}
+
+div.container .logo {
+    color: white;
+}
+
+div.container .logo h1 {
+    font-size: 2.3rem;
+    line-height: 2.8rem;
+}
+
+div.container .logo h2 {
+    color: var(--primary-color);
+    text-transform: uppercase;
+    font-size: .9rem;
+    line-height: 1rem;
+    letter-spacing: .15rem;
+}
+
+form.search input {
+    width: 100%;
+    padding: .5rem 1rem;
+    border-radius: 2px;
+    outline: none;
+}
+
+nav.primary ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+nav.primary ul li a {
+    display: flex;
+    align-items: center;
+    color: white;
+    transition: color .3s;
+}
+
+nav.primary ul li a:hover {
+    color: var(--primary-color);
+}
+
+nav.primary ul li a i {
+    margin-right: .2rem;
+}
+
+/* ============= CREATE ============= */
+
+section.form {
+    background-color: white;
+    padding: 2rem 1.5rem; 
+    margin: 2rem auto;
+    box-shadow: 2px 2px 3px -2px rgba(64,64,64, 0.3);
+    border: 1px solid #efefef;
+    border-radius: .5rem;
+    width: 90%;
+    max-width: 43.75rem;
+}
+
+section.form .form-header h2 {
+    font-size: 1.1rem;
+    font-weight: bold;
+    line-height: 2rem;
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+    color: var(--primary-color);
+    margin-bottom: .8rem;
+}
+
+form .item {
+    margin-bottom: 1.5rem;
+}
+
+form .item > div {
+    color: #777;
+    text-transform: uppercase;
+    font-size: .9rem;
+    font-weight: bold;
+    margin-bottom: .5rem;
+}
+
+form .item .input input,
+form .item textarea,
+form .item select {
+    width: 100%;
+    padding: .5rem 1rem;
+    box-shadow: 2px 2px 3px -2px rgba(64,64,64, 0.3);
+    border: 1px solid #efefef;
+    border-radius: .3rem;
+    font-size: 1.2rem;
+    outline: none;
+}
+
+form .item select {
+    /* sumir com a setinha de dropdown */
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    /* voltar com a setinha, mais estilizada e bonita */
+    background-color: white;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
+        linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);
+    background-repeat: no-repeat;
+    background-position: right .7rem top 50%, 0 0;
+    background-size: .65rem auto, 100%;
+}
+
+form .item select option {
+    font-size: 1.2rem;
+}
+
+form .item textarea {
+    font-size: 1.4rem;
+    min-height: 12rem;
+    resize: none;
+}
+
+form .fields {
+    margin-bottom: 2.5rem;
+}
+
+/* ============= FIELDS/PHOTOS ============= */
+
+#photos-upload {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    width: 12.5rem
+}
+
+#photos-upload p {
+    padding: 1rem .5rem;
+    border-radius: .5rem;
+    /*box-shadow: 2px 2px -4px -3px #333;*/
+    background-color: var(--secondary-color);
+    color: white;
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: .8rem;
+    font-weight: normal;
+}
+
+/* #photos-upload p.active {
+    background-color: #0049a9;
+} */
+
+#photos-upload .files-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+#photos-upload .files-input:hover {
+    background-color: red;
+}
+
+input[type=file], /* FF, IE7+, chrome (except button) */
+input[type=file]::-webkit-file-upload-button { /* chromes and blink button */
+    cursor: pointer;
+}
+
+#gallery-preview {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    width: 100%;
+    margin: 1.5rem auto;
+}
+
+#gallery-preview img {
+    width: 100%;
+    height: 7rem;
+    object-fit: cover;
+    border-radius: .5rem;
+    box-shadow: 2px 2px 4px -3px rgb(0 0 0 / 50%);
+}
+
+#gallery-preview .photo {
+    position: relative;
+}
+
+#gallery-preview .photo i {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.6);
+    color: red;
+    width: 100%;
+    height: 100%;
+    font-size: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    
+    opacity: 0;
+    transition: opacity .3s
+}
+
+#gallery-preview .photo:hover i{
+    opacity: 1;
+}
+
+/* ============= HOMEPAGE ============= */
+
+.shop h2 {
+    margin: 2.5rem;
+    font-size: 1.5rem;
+}
+
+.shop .items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.shop .items .product {
+    display: grid;
+}
+
+.shop .items .product .image {
+    padding-top: 56.25%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    border: 1px solid #efefef;
+    box-shadow: 2px 2px 4px -1px rgba(0,0,0,.3);
+}
+
+.shop .items .product h4 {
+    margin: 1rem 0;
+    color: #999;
+    font-weight: normal;
+}
+
+.shop .items .product p {
+    color: #101010;
+    font-weight: normal;
+    font-size: 1.5rem;
+    margin-top: .5rem;
+}
+
+.shop .items .product .old-price {
+    padding: 0;
+    margin: .25rem 0;
+    font-size: .9rem;
+    color: #999;
+    text-decoration: line-through;
+}
+
+/* ============= PAGINATION ============= */
+
+.footerPaginate {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
+.footerPaginate.active {
+    align-self: end;
+}
+
+.footerPaginate a,
+.footerPaginate span {
+    margin-right: .5rem;
+    font-size: 1.2rem;
+    color: #333;
+    padding: .4rem;
+}
+
+.footerPaginate a:hover {
+    background-color: #d8d8d8
+}
+
+/* SECTION FORMS */
+
+div.products-container.high-home {
+    display: grid;
+    grid-template-rows: 6rem 1fr 6rem;
+}
+
+div.products-container.low-home{
+    display: grid;
+    grid-template-rows: 6rem 26rem 6rem;
+}
+
+div.products-container.high-search {
+    display: grid;
+    grid-template-rows: 1fr 6rem;
+}
+
+div.products-container.low-search {
+    display: grid;
+    grid-template-rows: 20rem 14rem;
+}
+
+/* ============= USER - CREATE ============= */
+
+.user-register.container.form{
+    max-width: 550px;
+}
+
+.user-register form input[name="password"],
+.user-register form input[name="passwordRepeat"],
+.user-register form input[name="cpf_cnpj"],
+.user-register form input[name="cep"] {
+    max-width: 50%;
+}
+
+div.input .error {
+    background-color: #e74c3c;
+    padding: .125rem 1rem;
+    border-radius: 4px;
+    color: white;
+
+    font-size: .9rem;
+    text-transform: capitalize;
+}
+
+div.input .error.limitField {
+    max-width: 50%;
+}
+
+

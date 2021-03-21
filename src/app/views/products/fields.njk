@@ -1,0 +1,99 @@
+<div class="item">
+    <div>
+        <h2>Selecionar Categoria</h2>
+    </div>
+    <div>
+        <select name="category_id">
+                {% for category in categories %}
+                <option value="{{category.id}}" {% if product.category_id == category.id %} selected {% endif %}>{{category.name}}</option>
+                {% endfor %}
+        </select>
+    </div>
+</div>
+
+<div class="item">
+    <div>
+        <h2>Nome</h2>
+    </div>
+    <div class="input">
+        <input type="text" name="name" value="{{product.name}}">
+    </div>
+</div>
+
+<div class="item">
+    <div>
+        <h2>Descrição</h2>
+    </div>
+    <div>
+        <textarea name="description"cols="30" rows="10">{{product.description}}</textarea>
+    </div>
+</div>
+
+<div class="item">
+    <div>
+        <h2>Valor</h2>
+    </div>
+    <div class="input">
+        <input type="text" name="price" value="{{product.formatedPrice}}" onkeydown="Mask.apply(this, 'formatBRL')">
+    </div> 
+    {% if product.price %}
+        <input type="hidden" name="old_price" value="{{product.formatedOldPrice}}">
+    {% endif %}
+</div>
+
+<div class="item">
+    <div>
+        <h2>Quantidade</h2>
+    </div>
+    <div class="input">
+        <input type="number" name="quantity" value="{{product.quantity}}">
+    </div> 
+</div>
+
+<div class="item">
+    <div>
+        <h2>Fotos</h2>
+    </div>
+    <div>
+        <div class="input" id="photos-upload">
+            <input class="files-input" 
+            type="file" 
+            multiple="multiple" 
+            accept="image/*" 
+            name="photos" 
+            onchange="PhotosUpload.inputHandler(event)" 
+            onmouseenter="HoverSelectPhoto.hoverInput()"
+            onmouseout="HoverSelectPhoto.hoverInputOut()">
+
+            <p id="text-input">Selecione até 6 fotos</p>
+        </div>
+        <div id="gallery-preview">
+            {% if product.files %}
+                {% for file in product.files%}
+                    <div class="photo" id="{{file.id}}">
+                        <img src="{{file.src}}" alt="{{file.name}}">
+                        <i onclick="PhotosUpload.removeOldPhoto(event)" class="material-icons">close</i>
+                    </div>
+                {% endfor %}
+                <input type="hidden" name="removed_files">
+            {% endif %}
+
+        </div>
+    </div> 
+</div>
+
+{% if product.status == '1' or product.status == '0'%}
+<div class="item">
+    <div>
+        <h2>Status</h2>
+    </div>
+    <div class="input">
+        <span>
+            <input type="radio" name="status" value="1" {% if product.status == '1' %} checked {% endif %}> Sim
+        </span>
+        <span>
+            <input type="radio" name="status" value="0" {% if product.status == '0' %} checked {% endif %}> Não
+        </span>
+    </div> 
+</div>
+{% endif %}

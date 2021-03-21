@@ -1,0 +1,40 @@
+{% extends 'layout.njk' %}
+{% import 'parts/card.njk' as cards %}
+
+{% block content %}
+
+    {% call cards.render("Atualizar Produto", "product-edit container") %}
+
+        <form action="/products?_method=PUT" method="post" enctype="multipart/form-data">
+
+            <div class="fields">
+                {% include 'products/fields.njk' %}
+
+                <input type="hidden" name="id" value="{{product.id}}">
+            </div>
+
+            <button class="button edit" type="submit">Atualizar</button>
+
+        </form>
+
+        <form id="form-delete" action="/products?_method=DELETE" method="post">
+
+            <input type="hidden" name="id" value="{{product.id}}">
+
+            <button class="button delete" type="submit">Deletar</button>
+        
+        </form>
+
+    {% endcall %}
+
+    <script>
+        document.getElementById('form-delete').addEventListener('submit', function(e){
+            const confirmation = confirm('Tem certeza que deseja deletar?')
+            if(!confirmation){
+                e.preventDefault()
+            }
+        })
+    </script>
+
+{% endblock content %}
+

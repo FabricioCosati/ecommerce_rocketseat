@@ -1,0 +1,65 @@
+{% macro products(name, classes, products, params) %}
+
+    <section class="shop {{classes}}">
+
+        {% if not name and products | length  > 3 %}
+            <div class="products-container high-search">
+        {% elif not name %}
+            <div class="products-container low-search">
+        {% elif products | length  > 3 %}
+            <div class="products-container high-home">
+        {% else %}
+            <div class="products-container low-home">
+        {% endif %}
+
+            {% if name %}
+                <h2>{{name}}</h2>
+            {% endif %}
+
+            <div class="items">
+                {% for product in products %}
+                    <div class="product">
+                        <div 
+                        class="image" 
+                        style="background-image:url('{{product.img if product.img else '//placehold.it/500x200?text=PRODUTO SEM FOTO'}}');">
+                        </div>
+                        
+                        {% if product.old_price != product.price %}
+                            <div class="old-price">{{product.formatedOldPrice}}</div>
+                        {% endif %}
+
+                        <p>{{product.formatedPrice}}</p>
+
+                        <h4>{{product.name}}</h4>
+
+                        {% if classes == 'searched' %}
+                        <a href="/products/{{product.id}}" class="button active">Visualizar Produto</a>
+                        {% else %}
+                        <a href="/products/{{product.id}}" class="button">Visualizar Produto</a>
+                        {% endif %}
+
+                    </div>
+                {% endfor %}
+            </div>
+
+            {% if not name %}
+                <div 
+                class="footerPaginate active"
+                data-page="{{params.page}}"
+                data-total="{{params.total}}"
+                data-filter="{{params.filter}}"
+                >
+            </div>
+            {% else %}
+                <div 
+                class="footerPaginate"
+                data-page="{{params.page}}"
+                data-total="{{params.total}}"
+                data-filter="{{params.filter}}"
+                >
+            {% endif %}
+
+        </div>
+    </section>
+
+{% endmacro %}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Launchstore</title>
+    {% include 'parts/styles.njk' %}
+    <script src="/scripts.js" defer></script>
+</head>
+<body onload="Pagination.onLoadPage()">
+
+    {% include 'parts/messages.njk' %}
+
+    {% include 'parts/header.njk' %}
+
+    {% block content %} {% endblock content %}
+
+    {% include 'parts/footer.njk' %}
+
+</body>
+</html>

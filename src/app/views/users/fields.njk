@@ -1,0 +1,92 @@
+<div class="item">
+    <div>Nome</div>
+    <div class="input">
+        <input 
+        type="text"
+        name="name"
+        value="{{user.name}}"
+        placeholder="Nome Completo"
+        >
+    </div>
+</div>
+
+<div class="item">
+    <div>Email</div>
+    <div class="input">
+        <input 
+        type="email"
+        name="email"
+        value="{{user.email}}"
+        placeholder="exemplo@dominio.com"
+        onblur="Validate.apply(this, 'isEmail')"
+        >
+    </div>
+</div>
+
+<div class="item">
+    <div>Senha</div>
+    <div class="input">
+        <input 
+        type="password"
+        name="password"
+        {% if not user.id %}
+        placeholder="Escolha uma senha"
+        {% else %}
+        placeholder="Digite sua senha para atualizar"
+        {% endif %}
+        >
+    </div>
+</div>
+
+{% if not user.id %}
+    <div class="item">
+        <div>Repetir Senha</div>
+        <div class="input">
+            <input 
+            type="password"
+            name="passwordRepeat"
+            placeholder="Repita sua senha"
+            >
+        </div>
+    </div>
+{% endif %}
+
+<div class="item">
+    <div>CPF ou CNPJ</div>
+    <div class="input">
+        <input 
+        type="text"
+        name="cpf_cnpj"
+        value="{{user.cpf_cnpj}}"
+        placeholder="Seu CPF ou CNPJ"
+        onkeydown="Mask.apply(this, 'cpfCnpj')"
+        onblur="Validate.apply(this, 'isCpfCnpj')"
+        >
+    </div>
+</div>
+
+<div class="item">
+    <div>CEP</div>
+    <div class="input">
+        <input 
+        type="text"
+        name="cep"
+        value="{{user.cep}}"
+        placeholder="xxxxx-xx"
+        onkeydown="Mask.apply(this, 'cep')"
+        onblur="Validate.apply(this, 'isCep')"
+        >
+    </div>
+</div>
+
+<div class="item">
+    <div>Endereço</div>
+    <div class="input">
+        <input 
+        type="text"
+        name="address"
+        value="{{user.address}}"
+        placeholder="Seu endereço"
+        >
+    </div>
+</div>

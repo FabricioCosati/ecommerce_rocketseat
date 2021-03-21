@@ -1,0 +1,25 @@
+.card.login,
+.card.forgot-password,
+.card.reset-password {
+    max-width: 31.25rem;
+}
+
+section.login.container .fields,
+section.forgot-password.container .fields,
+section.reset-password.container .fields  {
+    margin-bottom: 3.5rem;
+}
+
+section.login.container .footer ul {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+section.login.container .footer ul li a {
+    color: #777;
+}
+
+section.login.container .footer ul li a:hover {
+    color: black;
+    font-weight: bold;
+}
